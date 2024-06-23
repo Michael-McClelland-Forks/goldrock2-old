@@ -8,7 +8,7 @@ locals {
           {
             name  = "securityservices"
             key   = "goldrock-securityservices"
-            email = "mccmcc+securityservices@amazon.com"
+            email = "mccmcc+goldrock2-security-services@amazon.com"
           }
         ]
         units = [
