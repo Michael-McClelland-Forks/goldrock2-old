@@ -1,15 +1,5 @@
-resource "aws_securityhub_account" "securityhub" {
-  auto_enable_controls      = false
-  control_finding_generator = "SECURITY_CONTROL"
-  enable_default_standards  = false
-}
-
 resource "aws_securityhub_finding_aggregator" "aws_securityhub_finding_aggregator" {
   linking_mode = "ALL_REGIONS"
-
-  depends_on = [
-    aws_securityhub_account.securityhub
-  ]
 }
 
 resource "aws_securityhub_organization_configuration" "aws_securityhub_organization_configuration" {
@@ -20,7 +10,6 @@ resource "aws_securityhub_organization_configuration" "aws_securityhub_organizat
   }
 
   depends_on = [
-    aws_securityhub_account.securityhub,
     aws_securityhub_finding_aggregator.aws_securityhub_finding_aggregator
   ]
 }
